@@ -1,0 +1,27 @@
+{
+  "name": "jonatanmanfredmiltonspecial",
+  "version": "1.0.0",
+  "description": "special",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vambyte/jonatanmanfredmiltonspecial.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vambyte/jonatanmanfredmiltonspecial/issues"
+  },
+  "homepage": "https://github.com/Vambyte/jonatanmanfredmiltonspecial#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "tsc": "^2.0.4"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.5"
+  }
+}
