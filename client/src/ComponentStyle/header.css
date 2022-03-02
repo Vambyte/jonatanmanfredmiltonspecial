@@ -2,11 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 32px;
 }
 
 nav{
     padding: 2vh 0;
     background-color: orange;
+    margin-bottom: 70px;
 }
 
 nav>ul{

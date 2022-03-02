@@ -1,12 +1,27 @@
-.Content-Parent-Container{
+.Content-Container{
     display: flex;
-    justify-content: center;
-    
+    justify-content: space-around;
 }
 
-.Content-Container{
-    width: 80%;
-    display: flex;
-    flex-wrap: wrap; 
+.Content-Container>.Chapter-Container>ul{
+    margin-top: 2em;
+    list-style: none;
+}
 
+.Content-Container>.Chapter-Container>ul>li{
+    margin-bottom: 2em;
+    text-align: center;
+}
+
+.Content-Container>.Chapter-Container>ul>li>a{
+    position: relative;
+}
+
+.Content-Container>.Chapter-Container>ul>li>a:active::after{
+    content: '';
+    
+    background-color: gray;
+    position: absolute;
+    width: 0.2em;
+    height: 1em;
 }
