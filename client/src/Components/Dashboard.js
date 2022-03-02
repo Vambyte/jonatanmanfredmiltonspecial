@@ -1,6 +1,8 @@
 import React from 'react';
 import '../ComponentStyle/Content.css'
 import ChapterTextArea from './ChapterTextArea'
+import Header from './Header';
+import Footer from './Footer';
 
 
 function Content({text}) {
@@ -10,6 +12,7 @@ function Content({text}) {
     return (
 
         <>
+            <Header />
             <div className='Content-Container'>
                 <div className="Chapter-Container">
                     <ul>
@@ -22,6 +25,7 @@ function Content({text}) {
 
                 <ChapterTextArea />
             </div>
+            <Footer />
         </>
     );
   }
