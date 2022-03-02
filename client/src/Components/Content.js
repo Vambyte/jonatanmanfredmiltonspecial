@@ -1,21 +1,28 @@
 import React from 'react';
-import ChapterCircle from './ChapterCircle.js'
 import '../ComponentStyle/Content.css'
+import ChapterTextArea from './ChapterTextArea'
 
 
 function Content({text}) {
 
-    const chapters = ['Kap1', 'Kap2', 'Kap3', 'Kap4', 'Kap5', 'Kap1', 'Kap2', 'Kap3', 'Kap4', 'Kap5', 'Kap1', 'Kap2', 'Kap3', 'Kap4', 'Kap5', 'Kap1', 'Kap2', 'Kap3', 'Kap4', 'Kap5', 'Kap1', 'Kap2', 'Kap3', 'Kap4', 'Kap5']
+    const chapters = ['Del 1', 'Del 2', 'Del 3', 'Del 4', 'Del 5', 'Del 6', 'Test']
 
     return (
 
-        <div className='Content-Parent-Container'>
+        <>
             <div className='Content-Container'>
-                {chapters.map((index)=>{
-                    return <ChapterCircle index={index} key={index}/>
-                })}
+                <div className="Chapter-Container">
+                    <ul>
+                        {chapters.map((chapter)=>{
+                            return (
+                                <li><a>{chapter}</a></li>)
+                        })}
+                    </ul>
+                </div>
+
+                <ChapterTextArea />
             </div>
-        </div>
+        </>
     );
   }
   
