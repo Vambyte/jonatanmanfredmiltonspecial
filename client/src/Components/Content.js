@@ -5,7 +5,7 @@ import '../ComponentStyle/Content.css'
 
 function Content({text}) {
 
-    const chapters = ['Kap1', 'Kap2']
+    const chapters = ['Kap1', 'Kap2', 'Kap3', 'Kap4', 'Kap5', 'Kap1', 'Kap2', 'Kap3', 'Kap4', 'Kap5', 'Kap1', 'Kap2', 'Kap3', 'Kap4', 'Kap5', 'Kap1', 'Kap2', 'Kap3', 'Kap4', 'Kap5', 'Kap1', 'Kap2', 'Kap3', 'Kap4', 'Kap5']
 
     return (
 
