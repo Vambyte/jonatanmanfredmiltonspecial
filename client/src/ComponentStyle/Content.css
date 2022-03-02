@@ -1,0 +1,9 @@
+.Content-Parent-Container{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.Content-Container{
+    width: 80%;
+}

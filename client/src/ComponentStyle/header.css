@@ -1,0 +1,32 @@
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav{
+    padding: 2vh 0;
+    background-color: orange;
+}
+
+nav>ul{
+    margin: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style-type: none;
+}
+
+nav>ul>div{
+    display: inherit;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+nav>ul>div>li{
+    margin: 0 26px;
+}
+
+nav>ul>div>li>a{
+    text-decoration: none;
+}
