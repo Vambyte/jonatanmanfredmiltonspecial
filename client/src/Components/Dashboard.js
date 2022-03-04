@@ -14,13 +14,15 @@ function Content({text}) {
         <>
             <Header />
             <div className='Content-Container'>
-                <div className="Chapter-Container">
-                    <ul>
-                        {chapters.map((chapter)=>{
-                            return (
-                                <li><a>{chapter}</a></li>)
-                        })}
-                    </ul>
+                <div className="Chapter-Container-Container">
+                    <div className="Chapter-Container">
+                        <ul>
+                            {chapters.map((chapter)=>{
+                                return (
+                                    <li><a href="google.se" target="_blank">{chapter}</a></li>)
+                            })}
+                        </ul>
+                    </div>
                 </div>
 
                 <ChapterTextArea />
