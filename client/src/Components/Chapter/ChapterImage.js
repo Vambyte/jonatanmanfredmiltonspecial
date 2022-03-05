@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { Card } from 'react-bootstrap'
 
-export default function Image({ name, className }) {
+export default function ChapterImage({ name, className }) {
 
     const [img, setImg] = useState();
 
@@ -16,6 +17,8 @@ export default function Image({ name, className }) {
         const imageObjectURL = URL.createObjectURL(imageBlob);
         setImg(imageObjectURL);
     }
+
+    
 
     useEffect(() => fetchImage(), []);
 

@@ -1,9 +1,14 @@
 import React, {useEffect, useState} from 'react'
-import '../ComponentStyle/ChapterTextArea.css'
+import '../../ComponentStyle/ChapterTextArea.css'
 import 'react-jsx-parser'
 import JsxParser from 'react-jsx-parser';
-import Image from './Image';
 
+import ChapterImage from './ChapterImage';
+import ChapterQuestions from './ChapterQuestions';
+import ChapterQuestionForm from './ChapterQuestionForm';
+import ChapterQuestionText from './ChapterQuestionText';
+import ChapterQuestionCheckbox from './ChapterQuestionCheckbox';
+import ChapterQuestionRadio from './ChapterQuestionRadio';
 
 export default function ChapterTextArea() {
 
@@ -35,7 +40,7 @@ export default function ChapterTextArea() {
     <div className="main-container">
       <div className="chapter-container">
         <div className="chapter-content">
-            <JsxParser components={{ Image }}jsx={chapterHtml}/>
+            <JsxParser components={{ ChapterImage, ChapterQuestions, ChapterQuestionForm, ChapterQuestionText, ChapterQuestionCheckbox, ChapterQuestionRadio }}jsx={chapterHtml}/>
         </div>
       </div>
     </div>
