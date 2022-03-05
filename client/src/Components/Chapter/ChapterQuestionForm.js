@@ -4,7 +4,7 @@ import '../../ComponentStyle/ChapterTextArea.css'
 
 export default function ChapterQuestionForm({children}) {
   return (
-    <form className="question-form">
+    <form className="form-group">
         {children}
     </form>
   )
