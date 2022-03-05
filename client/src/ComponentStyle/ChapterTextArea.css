@@ -36,73 +36,94 @@
     margin-bottom: 30px;
 }
 
-.checkbox {
-    width: 20px;
-    height: 20px;
+hr {
+    border: 0;
+    clear:both;
+    display:block;
+    width: 96%;               
+    background-color:#FFFF00;
+    height: 1px;
+}
+
+.questions-h1 {
     text-align: center;
-    vertical-align: middle;
-
+    font-size: 1.7rem;
 }
 
-.select-child {
-    margin-inline: 30px;
-}
-
-.select-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    flex-direction: row;
-}
-
-.input-label {
-    font-size: 0.7rem;
-    text-align: center;
-}
-
-.select-option-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.question-form {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.text-question-container {
-    display: flex;
-    flex-direction: row;
-}
-
-.text-question-input-container {
-    width: 75%;
-    display: flex;
-    flex-direction: column;
-
-}
-
-.question-btn {
+ .question-btn {
+    width: 70px;
+    height: 40px;
+    margin-left: 150px;
     margin-top: auto;
 
-
-    width: 120px;
-    height: 50px;
-}
-
-hr {
-    display: block;
-    position: relative;
-    padding: 0;
-    margin: 20px auto;
-    height: 0;
-    width: 80%;
-    max-height: 0;
-    font-size: 1px;
-    line-height: 0;
-    clear: both;
-    border: none;
-    border-top: 3px solid #aaaaaa;
-    border-bottom: 3px solid #ffffff;
+    font-size: 0.7rem;
+    background-color: rgb(7, 137, 243);
+    color: rgb(255, 255, 255);
+    border-radius: 8px;
+    border: 0;
+     
  }
+
+ .main-questions-container {
+    width: 70%;
+    margin: auto;
+    padding:1.8rem 1rem;
+ }
+
+ .question-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+ }
+
+ .select-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+ }
+
+ .form-control {
+    display: block;
+    width: 100%;
+    height: 1.5rem;
+    padding: 0.375rem 0.75rem;
+    color: #000000;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+ }
+
+ .form-control[type="text"] {
+    font-size: 0.8rem;
+    color: rgb(85, 85, 85);
+ }
+
+ .question-text {
+    font-size: 0.6rem;
+ }
+
+ .select-label {
+    font-size: 0.5rem;
+ }
+
+ .form-group {
+    margin: 0 auto 1.25rem auto;
+    padding: 0.7rem;
+    border: 1px solid rgb(85, 85, 85);
+    border-radius: 0.25rem;
+ }
+
+.inputRadio,
+.checkbox
+{
+    display: inline-block;
+    margin-right: 0.625rem;
+
+
+    width: 0.5rem;
+    height: 0.5rem;
+
+}

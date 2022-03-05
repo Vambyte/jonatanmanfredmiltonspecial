@@ -5,21 +5,26 @@ import '../../ComponentStyle/ChapterTextArea.css'
 export default function ({question, options}) {
     return (
         <>
-        <div className="select-container">
-            {options.map((option) => {
-                return (
-                    <>
-                        <div class="select-option-container">
-                            <label class="input-label" for={option}>{option}</label>
-                            <input type="checkbox" name={option} className="checkbox select-child" key={option}/>
-                        </div>
-                    </>
-                )
-            })}
-            
-            <button type="submit"/>
-        </div>
+        <div>
+            <p className="question-text">{question}</p>
+            <div className="question-container">
 
+                <div className="select-container">
+                    {options.map((option) => {
+                        return (
+                            <>
+                                <label className="select-label" key={option+option}>
+                                    <input type="checkbox" className="checkbox select-child" value={option} key={option}/> {option}
+                                </label>
+                            </>
+                        )
+                    })}
+                </div>
+
+                <button type="submit" className="question-btn">OK</button>
+
+            </div>
+        </div>
         </>
     )
 }
