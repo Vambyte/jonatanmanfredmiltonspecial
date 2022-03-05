@@ -1,6 +1,6 @@
 import React from 'react';
 import '../ComponentStyle/Content.css'
-import ChapterTextArea from './ChapterTextArea'
+import ChapterTextArea from './Chapter/ChapterTextArea'
 import Header from './Header';
 import Footer from './Footer';
 

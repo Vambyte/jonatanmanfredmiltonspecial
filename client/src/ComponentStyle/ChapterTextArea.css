@@ -36,6 +36,61 @@
     margin-bottom: 30px;
 }
 
+.checkbox {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    vertical-align: middle;
+
+}
+
+.select-child {
+    margin-inline: 30px;
+}
+
+.select-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: row;
+}
+
+.input-label {
+    font-size: 0.7rem;
+    text-align: center;
+}
+
+.select-option-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.question-form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.text-question-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.text-question-input-container {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.question-btn {
+    margin-top: auto;
+
+
+    width: 120px;
+    height: 50px;
+}
+
 hr {
     display: block;
     position: relative;
