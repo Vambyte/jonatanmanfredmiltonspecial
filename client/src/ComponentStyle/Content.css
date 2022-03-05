@@ -3,35 +3,85 @@
     justify-content: space-around;
 }
 
-.Content-Container>.Chapter-Container>ul{
-    margin-top: 1em;
+.Content-Container>.Chapter-Container-Container{
+    width: 10%;
+    height: 80vh;
+    padding: 10px;
+    background-color: rgb(219, 219, 219);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-radius: 15px;
+}
+
+.Chapter-Container-Container>.Chapter-Container{
+    padding: 0;
+}
+
+.Chapter-Container>ul{
+    padding: 0;
+    margin-top: .5em;
     list-style: none;
 }
 
-.Content-Container>.Chapter-Container>ul>li{
+.Chapter-Container>ul>li{
     margin-bottom: 2em;
     text-align: center;
+    background-color: white;
+    color: black;
 }
 
-.Content-Container>.Chapter-Container>ul>li>a{
+.Chapter-Container>ul>li:last-child{
+    margin-bottom: 0;
+}
+
+.Chapter-Container>ul>li>a{
     position: relative;
+    text-decoration: none;
 }
 
-.Content-Container>.Chapter-Container>ul>li>a:active::after,
-.Content-Container>.Chapter-Container>ul>li>a:active::before{
+.Chapter-Container>ul>li>a:focus{
+    outline: none;
+}
+
+.Chapter-Container>ul>li>a:focus::after,
+.Chapter-Container>ul>li>a:focus::before{
     content: '';
-    background-color: hsla(231, 100%, 50%, 0.459);
+    background-color: hsla(0, 0%, 0%, 1);
     position: absolute;
 }
 
-.Content-Container>.Chapter-Container>ul>li>a:active::after{
+.Chapter-Container>ul>li>a:focus::after{
+    right:-0.5em;
     top: calc(50% - 0.5em);
     width: 0.2em;
     height: 1em;
 }
 
-.Content-Container>.Chapter-Container>ul>li>a:active::before{
-    top: calc(100% - 0.05em);
-    width: calc(100% + 0.2em);
-    height: 0.1em;
+.Chapter-Container>ul>li>a:focus::before{
+    left:-0.5em;
+    top: calc(50% - 0.5em);
+    width: 0.2em;
+    height: 1em;
+}
+
+
+
+
+/*scroll*/
+::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 50%;
+}
+  
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+  
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
