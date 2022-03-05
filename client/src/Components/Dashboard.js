@@ -9,6 +9,10 @@ function Content({text}) {
 
     const chapters = ['Del 1', 'Del 2', 'Del 3', 'Del 4', 'Del 5', 'Del 6', 'Test']
 
+    function function1(){
+        console.log("hello");
+    }
+
     return (
 
         <>
@@ -19,7 +23,7 @@ function Content({text}) {
                         <ul>
                             {chapters.map((chapter)=>{
                                 return (
-                                    <li><a href="google.se" target="_blank">{chapter}</a></li>)
+                                    <li><a href="#" key={chapter} onClick={() => function1()}>{chapter}</a></li>)
                             })}
                         </ul>
                     </div>

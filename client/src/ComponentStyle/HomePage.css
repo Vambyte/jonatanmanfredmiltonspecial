@@ -1,0 +1,12 @@
+ul{
+    list-style: none;
+}
+
+ul>li{
+    margin: 50px;
+}
+
+button{
+    width: max-content;
+    height: max-content;
+}

@@ -23,13 +23,13 @@ function Header() {
         <nav>
           <ul>
             <div>
-              <li><a href="google.se" target="_blank">Home</a></li>
-              <li><a href="google.se" target="_blank">Our Course</a></li>
-              <li><a href="google.se" target="_blank">The team</a></li>
-              <li><a href="google.se" target="_blank">About us</a></li>
+              <li key={"Home"}><a href="google.se" target="_blank">Home</a></li>
+              <li key={"OurCourse"}><a href="google.se" target="_blank">Our Course</a></li>
+              <li key={"TheTeam"}><a href="google.se" target="_blank">The team</a></li>
+              <li key={"AboutUs"}><a href="google.se" target="_blank">About us</a></li>
             </div>
             <div>
-              <li><button className="button-link" onClick={handleLogout}>Logout</button></li>
+              <li key={"LogOut"}><button className="button-link" onClick={handleLogout}>Logout</button></li>
             </div>
           </ul>
         </nav>
