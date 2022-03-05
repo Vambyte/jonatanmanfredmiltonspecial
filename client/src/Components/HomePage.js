@@ -8,14 +8,16 @@ class HomeChapters extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            showComponent: false,
+            showComponent: false
         };
         this._onShowPreview = this._onShowPreview.bind(this);
     }
 
+    
+
     _onShowPreview() {
         this.setState({
-            showComponent: true,
+            showComponent: !this.state.showComponent
         });
     }
 
@@ -26,11 +28,8 @@ class HomeChapters extends React.Component {
                 
                 <ul>
                     <li>
-                    <button onClick={this._onShowPreview}>Kapitel 1</button>
-                    {this.state.showComponent ?
-                        <ChapterPreview /> :
-                        null
-                    }
+                        <button onClick={this._onShowPreview}>Kapitel 1</button>
+                        {this.state.showComponent ? <ChapterPreview /> : null}
                     </li>
                     
                     <li><button onClick={this._onShowPreview}>Kapitel 2</button></li>

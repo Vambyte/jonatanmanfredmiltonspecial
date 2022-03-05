@@ -3,19 +3,10 @@ import '../ComponentStyle/ChapterPreview.css'
 
 
 export default function ChapterPreview() {
-
-    function hidePreview(){ // hahahha den funkar inte alls ´LOL!
-        this.setState({
-            showComponent: false
-        });
-    }
-
-
     return (
         <div className="chapterpreview-container">
             <header>
                 <h1 className="chapterpreview-h1">Kapitel 1</h1>
-                <button onClick={() => hidePreview(this)}>HIDE!!</button>
             </header>
             
             <section>
