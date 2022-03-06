@@ -1,7 +1,9 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState } from 'react'
 import '../../ComponentStyle/ChapterTextArea.css'
 import 'react-jsx-parser'
 import JsxParser from 'react-jsx-parser';
+
+import { useSearchParams } from 'react-router-dom';
 
 import ChapterImage from './ChapterImage';
 import ChapterQuestions from './ChapterQuestions';
@@ -14,7 +16,15 @@ export default function ChapterTextArea() {
 
   const [chapterHtml, setChapterHtml] = useState("");
 
+  const [searchParams, setSearchParams] = useSearchParams();
+
   useEffect(() => {
+
+    const chapter = searchParams.get("chapter");
+    const part = searchParams.get("part");
+
+    console.log(part);
+    console.log("hoha");
 
     const requestOptions = {
       method: "post",
@@ -22,7 +32,10 @@ export default function ChapterTextArea() {
         "Content-Type": "application/json",
         "Authorization": "Bearer " + localStorage.getItem("JWT-token")
       },
-      body: JSON.stringify({ chapter: "Chapter_example.html"})
+      body: JSON.stringify({
+         chapter: chapter,
+         part: part
+      })
     }
 
 

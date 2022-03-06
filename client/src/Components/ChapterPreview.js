@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import '../ComponentStyle/ChapterPreview.css'
 
 
@@ -14,7 +15,10 @@ export default function ChapterPreview() {
             </section>
     
             <footer>
-                <a href="../">Fortsätt till kapitel 1</a>
+                <Link to={{
+                    pathname: "/chapter",
+                    search: "?chapter=1&part=1"
+                }} >Fortsätt till kapitel</Link>
             </footer>
         </div>
     

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Card } from 'react-bootstrap'
 
-export default function ChapterImage({ name, className }) {
+export default function ChapterImage({ chapter, imageName, className }) {
 
     const [img, setImg] = useState();
 
@@ -12,7 +12,10 @@ export default function ChapterImage({ name, className }) {
                 "Content-Type": "application/json",
                 "Authorization": "Bearer " + localStorage.getItem("JWT-token")
             },
-            body: JSON.stringify({image: name})
+            body: JSON.stringify({
+                chapter: chapter,
+                image: imageName
+            })
         };
 
         const res = await fetch("/main/chapter/get-image", requestOptions);

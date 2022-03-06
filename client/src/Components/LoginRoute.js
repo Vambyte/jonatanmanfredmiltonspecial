@@ -5,5 +5,5 @@ import Login from './Login';
 
 export default function LoginRoute({component: Component, ...rest}) {
 
-    return localStorage.getItem("JWT-token") ? <Navigate to="/" /> : <Outlet />;
+    return localStorage.getItem("JWT-token") ? <Navigate to="/home" /> : <Outlet />;
 }

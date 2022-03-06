@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Dashboard from './Components/Dashboard.js'
+import Chapter from './Components/Chapter.js'
 import HomePage from './Components/HomePage.js'
 import Login from './Components/Login.js';
 import Signup from './Components/Signup.js';
@@ -15,8 +15,8 @@ function App() {
     <Router>
     <AuthProvider>
       <Routes>
-        <Route exact path="/" element={<PrivateRoute/>}>
-          <Route exact path="/" element={<Dashboard/>}/>
+        <Route exact path="/chapter" element={<PrivateRoute/>}>
+          <Route exact path="/chapter" element={<Chapter/>}/>
         </Route>
         <Route exact path="/home" element={<PrivateRoute/>}>
           <Route exact path="/home" element={<HomePage/>}/>

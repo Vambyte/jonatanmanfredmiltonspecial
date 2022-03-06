@@ -5,7 +5,7 @@ import { RetrieveChapter, RetrieveImage } from "./../../../services/Chapter";
 module.exports.getContent = async function (req: any, res: any) {
     res.setHeader("Content-Type", "text-html");
 
-    RetrieveChapter(req.body.chapter)
+    RetrieveChapter(req.body.chapter, req.body.part)
         .then((content: any) => res.status(201).send(content))
         .catch((err: any) => res.status(500).send(err));
 }
@@ -13,7 +13,7 @@ module.exports.getContent = async function (req: any, res: any) {
 module.exports.getImage = async function (req: any, res: any) {
     res.setHeader("Content-Type", "image/jpg");
 
-    RetrieveImage(req.body.image)
+    RetrieveImage(req.body.chapter, req.body.image)
     .then((content: any) => res.status(201).send(content))
     .catch((err: any) => res.status(500).send(err));
 }
