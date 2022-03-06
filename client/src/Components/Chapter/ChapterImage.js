@@ -8,7 +8,10 @@ export default function ChapterImage({ name, className }) {
     const fetchImage = async function () {
         const requestOptions = {
             method: "post",
-            headers: {"Content-Type": "application/json"},
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + localStorage.getItem("JWT-token")
+            },
             body: JSON.stringify({image: name})
         };
 

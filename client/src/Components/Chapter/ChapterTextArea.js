@@ -18,7 +18,10 @@ export default function ChapterTextArea() {
 
     const requestOptions = {
       method: "post",
-      headers: {"Content-Type": "application/json"},
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + localStorage.getItem("JWT-token")
+      },
       body: JSON.stringify({ chapter: "Chapter_example.html"})
     }
 

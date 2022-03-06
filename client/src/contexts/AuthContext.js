@@ -13,24 +13,55 @@ export function AuthProvider({ children }) {
     const [loading, setLoading] = useState(true);
 
     function signup(email, password) {
-        return auth.createUserWithEmailAndPassword(email, password);
+
+        return new Promise((resolve, reject) => {
+            const requestOptions = {
+                method: "post",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({ email: email, password: password})
+            }
+    
+            fetch("/user/signup", requestOptions)
+            .then((res) => res.json())
+            .then(data => {
+                if (data.success) {
+                    resolve(data.msg)
+                } else {
+                    reject(data.msg);
+                }
+            });
+        });
+
     }
 
     function login(email, password) {
-        return auth.signInWithEmailAndPassword(email, password);
+        return new Promise((resolve, reject) => {
+            const requestOptions = {
+                method: "post",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({ email: email, password: password})
+            }
+    
+            fetch("/user/login", requestOptions)
+            .then((res) => res.json())
+            .then(data => {
+                if (data.success) {
+                    localStorage.setItem("JWT-token", data.data.token);
+                    setCurrentUser(data.data.user);
+                    resolve();
+                } else {
+                    reject(data.msg);
+                }
+            });
+        })
     }
 
     function logout() {
-        auth.signOut();
+        localStorage.removeItem("JWT-token");
     }
 
     useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged(user => {
-            setCurrentUser(user);
-            setLoading(false);
-        });
-
-        return unsubscribe;
+        setLoading(false);
     }, [])
 
     

@@ -5,7 +5,5 @@ import Login from './Login';
 
 export default function PrivateRoute({component: Component, ...rest}) {
 
-    const { currentUser } = useAuth();
-
-    return currentUser  ? <Outlet /> : <Navigate to="/login" />
+    return localStorage.getItem("JWT-token")  ? <Outlet /> : <Navigate to="/login" />
 }
