@@ -11,6 +11,7 @@ import ChapterQuestionForm from './ChapterQuestionForm';
 import ChapterQuestionText from './ChapterQuestionText';
 import ChapterQuestionCheckbox from './ChapterQuestionCheckbox';
 import ChapterQuestionRadio from './ChapterQuestionRadio';
+import { useChapter } from '../../contexts/ChapterContext';
 
 export default function ChapterTextArea() {
 
@@ -18,13 +19,13 @@ export default function ChapterTextArea() {
 
   const [searchParams, setSearchParams] = useSearchParams();
 
+  const { currentChapter, currentPart } = useChapter();
+
   useEffect(() => {
 
-    const chapter = searchParams.get("chapter");
-    const part = searchParams.get("part");
+    console.log("fetching", currentChapter);
 
-    console.log(part);
-    console.log("hoha");
+    if (currentChapter == null || currentPart == null) return;
 
     const requestOptions = {
       method: "post",
@@ -33,8 +34,8 @@ export default function ChapterTextArea() {
         "Authorization": "Bearer " + localStorage.getItem("JWT-token")
       },
       body: JSON.stringify({
-         chapter: chapter,
-         part: part
+         chapter: currentChapter,
+         part: currentPart
       })
     }
 
@@ -46,7 +47,7 @@ export default function ChapterTextArea() {
       })
     });
 
-  }, []);
+  }, [useChapter]);
 
   function arr() {
     

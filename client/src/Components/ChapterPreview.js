@@ -1,11 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import '../ComponentStyle/ChapterPreview.css'
+import { useAuth } from '../contexts/AuthContext';
+import { useChapter } from '../contexts/ChapterContext';
 
 
 export default function ChapterPreview() {
+    const { setChapter } = useChapter();
+    const { currentUser } = useAuth();
+
+
+    async function chapterClickHandle(e) {
+        await setChapter("1");
+    }
+
     return (
         <div className="chapterpreview-container">
+
             <header>
                 <h1 className="chapterpreview-h1">Kapitel 1</h1>
             </header>
@@ -15,10 +26,7 @@ export default function ChapterPreview() {
             </section>
     
             <footer>
-                <Link to={{
-                    pathname: "/chapter",
-                    search: "?chapter=1&part=1"
-                }} >Fortsätt till kapitel</Link>
+                <Link to="/chapter" onClick={chapterClickHandle} >Fortsätt till kapitel</Link>
             </footer>
         </div>
     

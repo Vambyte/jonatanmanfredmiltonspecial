@@ -46,6 +46,7 @@ export function AuthProvider({ children }) {
             .then(data => {
                 if (data.success) {
                     localStorage.setItem("JWT-token", data.data.token);
+                    localStorage.setItem("user", JSON.stringify(data.data.user));
                     setCurrentUser(data.data.user);
                     resolve();
                 } else {
@@ -60,6 +61,7 @@ export function AuthProvider({ children }) {
     }
 
     useEffect(() => {
+        setCurrentUser(JSON.parse(localStorage.getItem("user")));
         setLoading(false);
     }, [])
 

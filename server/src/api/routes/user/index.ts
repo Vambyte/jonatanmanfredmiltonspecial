@@ -1,7 +1,7 @@
 export {};
 
 import { Router } from "express";
-import { checkNotAuthenticated } from "../../middleware/check-auth";
+import { checkAuthenticated, checkNotAuthenticated } from "../../middleware/check-auth";
 
 const router = Router();
 
@@ -14,5 +14,20 @@ router
     .route("/signup")
     .all(checkNotAuthenticated)
     .post(require("./signup"))
+
+router
+    .route("/get-chapter-info")
+    .all(checkAuthenticated)
+    .post(require("./chapter").getChapterInfo)
+
+router
+    .route("/set-current-chapter")
+    .all(checkAuthenticated)
+    .post(require("./chapter").setCurrentChapter)
+
+router
+    .route("/set-current-part")
+    .all(checkAuthenticated)
+    .post(require("./chapter").setCurrentPart)
 
 module.exports = router;

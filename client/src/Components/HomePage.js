@@ -3,6 +3,7 @@ import Header from './Header';
 import Footer from './Footer';
 import '../ComponentStyle/HomePage.css';
 import ChapterPreview from "./ChapterPreview";
+import { useAuth } from '../contexts/AuthContext';
 
 class HomeChapters extends React.Component {
     constructor(props) {
@@ -22,10 +23,11 @@ class HomeChapters extends React.Component {
     }
 
     render() {
+
+
         return (
             <>
-                <Header />
-                
+                <Header />                
                 <ul>
                     <li>
                         <button onClick={this._onShowPreview}>Kapitel 1</button>

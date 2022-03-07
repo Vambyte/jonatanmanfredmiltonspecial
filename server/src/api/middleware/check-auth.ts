@@ -7,6 +7,9 @@ export const checkAuthenticated = (req: any, res: any, next: any) => {
         const token = req.headers.authorization.split(" ")[1];
         const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
         req.user = decoded;
+
+        // Look up user in database and check token??
+
         next();
     }
     catch (err) {
