@@ -16,7 +16,7 @@ export const checkAuthenticated = (req: any, res: any, next: any) => {
         return res.status(409).json(<APIResponse>({
             status: 409,
             success: false,
-            code: "ERROR",
+            code: "ERROR_TOKEN",
             msg: "Could not authenticate",
             data: null
         }));

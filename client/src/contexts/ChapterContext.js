@@ -36,6 +36,11 @@ export function ChapterProvider({ children }) {
         fetch("/user/set-current-chapter", requestOptions)
         .then((res) => res.json())
         .then(data => {
+            if (data.code = "ERROR_TOKEN") {
+                localStorage.removeItem("JWT-token");
+                //redirect
+            }
+
             if (data.success) {
                 let userObj = JSON.parse(localStorage.getItem("user"));
 
