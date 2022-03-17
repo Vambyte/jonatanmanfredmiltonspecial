@@ -6,4 +6,3 @@ module.exports.checkTokenStatus = function (req: any, res: any) {
     CheckTokenStatus(token)        
         .then((apiResponse: APIResponse) => res.status(apiResponse.status).json(apiResponse))
         .catch((apiResponse: APIResponse) => res.status(apiResponse.status).json(apiResponse));
-}
