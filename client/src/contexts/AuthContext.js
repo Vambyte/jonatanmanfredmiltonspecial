@@ -1,18 +1,22 @@
 import React, { useContext, useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const AuthContext = React.createContext();
+
 
 export function useAuth() {
     return useContext(AuthContext);
 }
 
-export function AuthProvider({ children }) {
+export function AuthProvider({children}) {
 
-    const [currentUser, setCurrentUser] = useState();
+    const [currentUser, setCurrentUser] = useState({});
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
+
+
 
     function signup(email, password) {
-
         return new Promise((resolve, reject) => {
             const requestOptions = {
                 method: "post",
@@ -47,7 +51,7 @@ export function AuthProvider({ children }) {
                 if (data.success) {
                     localStorage.setItem("JWT-token", data.data.token);
                     localStorage.setItem("user", JSON.stringify(data.data.user));
-                    setCurrentUser(data.data.user);
+                    this.setState({currentUser: data.data.user});
                     resolve();
                 } else {
                     reject(data.msg);
@@ -61,22 +65,45 @@ export function AuthProvider({ children }) {
     }
 
     useEffect(() => {
-        setCurrentUser(JSON.parse(localStorage.getItem("user")));
-        setLoading(false);
-    }, [])
+        const requestOptions = {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + localStorage.getItem("JWT-token")
+            },
+        }
 
-    
+        fetch("/user/check-token-status", requestOptions)
+        .then((res) => res.json())
+        .then(data => {
+            if (data.success === false) {
+                logout();
+
+                navigate("/login");
+
+                return;
+            }
+
+            console.log("Token is valid");
+
+            setCurrentUser(JSON.parse(localStorage.getItem("user")));
+
+            setLoading(false);
+        });
+    }, [navigate]) 
 
     const value = {
         currentUser,
-        signup,
         login,
-        logout
+        logout,
+        signup
     }
-    
+        
+
     return (
         <AuthContext.Provider value={value}>
             {!loading && children}
         </AuthContext.Provider>
-    )
+    );
+    
 }

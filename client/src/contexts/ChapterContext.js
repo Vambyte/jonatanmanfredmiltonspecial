@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from './AuthContext';
 
 const ChapterContext = React.createContext();
@@ -14,6 +15,8 @@ export function ChapterProvider({ children }) {
     const [loading, setLoading] = useState(true);
 
     const { currentUser } = useAuth();
+
+    const navigate = useNavigate();
 
     async function setChapter(newChapter) {
         
@@ -36,6 +39,7 @@ export function ChapterProvider({ children }) {
         fetch("/user/set-current-chapter", requestOptions)
         .then((res) => res.json())
         .then(data => {
+
             if (data.success) {
                 let userObj = JSON.parse(localStorage.getItem("user"));
 
@@ -78,10 +82,13 @@ export function ChapterProvider({ children }) {
 
 
     useEffect(() => {
-        console.log("currentUser");
         setLoading(true);
 
-        if (currentUser == null) return;
+        if (currentUser == null) {
+            setLoading(false);
+            return;
+        }
+
 
         const requestOptions = {
             method: "post",
@@ -93,20 +100,33 @@ export function ChapterProvider({ children }) {
                email: currentUser.email
                // Add password for internal authentication among users???
             })
-          }
+        }
       
+        
       
         fetch("/user/get-chapter-info", requestOptions)
         .then((res) => res.json())
         .then(data => {
+            if (data.code === "ERROR_TOKEN") {
+                localStorage.removeItem("JWT-token");
+                localStorage.removeItem("user");
+
+
+
+                navigate("/login");
+                return;
+            }
+
             if (data.success) {
                 setCurrentChapter(data.data.chapter);
                 setCurrentPart(data.data.part);
                 setLoading(false);
+
+                console.log("Chapter data has been loaded");
             }
         });
 
-    }, [currentUser]);
+    }, [currentUser, navigate]);
 
 
     const value = {

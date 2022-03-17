@@ -8,6 +8,7 @@ import { AuthProvider } from './contexts/AuthContext.js';
 import PrivateRoute from './Components/PrivateRoute.js';
 import LoginRoute from './Components/LoginRoute.js';
 import { ChapterProvider } from './contexts/ChapterContext.js';
+import GenericNotFound from './Components/GenericNotFound.js';
 
 
 
@@ -29,6 +30,7 @@ function App() {
           <Route path="/login" element={<LoginRoute/>}>
             <Route path="/login" element={<Login/>}/>
           </Route>
+          <Route path="*" exact element={<GenericNotFound/>}/>
         </Routes>
       </ChapterProvider>
     </AuthProvider>

@@ -19,7 +19,6 @@ export default function Login() {
             setError('');
             setLoading(true);
             await login(emailRef.current.value, passwordRef.current.value);
-            console.log("ok");
             navigate("/home");
         } catch (err) {
             setError(err);

@@ -30,4 +30,8 @@ router
     .all(checkAuthenticated)
     .post(require("./chapter").setCurrentPart)
 
+router
+    .route("/check-token-status")
+    .post(require("./data").checkTokenStatus)
+
 module.exports = router;
