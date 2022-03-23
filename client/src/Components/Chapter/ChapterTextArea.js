@@ -23,7 +23,7 @@ export default function ChapterTextArea() {
 
   useEffect(() => {
 
-    console.log("fetching", currentChapter);
+    console.log("Fetching chapter:", currentChapter, "part:", currentPart);
 
     if (currentChapter == null || currentPart == null) return;
 
@@ -39,7 +39,6 @@ export default function ChapterTextArea() {
       })
     }
 
-
     fetch("/main/chapter/get-content", requestOptions).then((res) => {
       const reader = res.body.getReader();
       reader.read().then(({done, value}) => {
@@ -47,7 +46,7 @@ export default function ChapterTextArea() {
       })
     });
 
-  }, [useChapter]);
+  }, [chapterHtml, currentChapter, currentPart]);
 
   function arr() {
     

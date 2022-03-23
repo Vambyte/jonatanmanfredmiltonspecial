@@ -19,10 +19,10 @@ function App() {
       <ChapterProvider>
         <Routes>
           <Route exact path="/chapter" element={<PrivateRoute/>}>
-            <Route exact path="/chapter" element={<Chapter/>}/>
+              <Route exact path="/chapter" element={<Chapter/>}/>
           </Route>
           <Route exact path="/home" element={<PrivateRoute/>}>
-            <Route exact path="/home" element={<HomePage/>}/>
+              <Route exact path="/home" element={<HomePage/>}/>
           </Route>
           <Route path="/signup" element={<LoginRoute/>}>
             <Route path="/signup" element={<Signup/>}/>
@@ -33,6 +33,7 @@ function App() {
           <Route path="*" exact element={<GenericNotFound/>}/>
         </Routes>
       </ChapterProvider>
+
     </AuthProvider>
     </Router>
   );

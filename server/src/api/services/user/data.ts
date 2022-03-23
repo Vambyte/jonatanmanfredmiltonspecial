@@ -15,7 +15,7 @@ export async function CheckTokenStatus(token: any): Promise<APIResponse> {
             }));
         } catch(err) {
             return reject(<APIResponse>({
-                status: 409,
+                status: 200,
                 success: false,
                 code: "ERROR_TOKEN",
                 msg: "",

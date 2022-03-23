@@ -51,7 +51,7 @@ export function AuthProvider({children}) {
                 if (data.success) {
                     localStorage.setItem("JWT-token", data.data.token);
                     localStorage.setItem("user", JSON.stringify(data.data.user));
-                    this.setState({currentUser: data.data.user});
+                    setCurrentUser(data.data.user);
                     resolve();
                 } else {
                     reject(data.msg);
@@ -62,6 +62,8 @@ export function AuthProvider({children}) {
 
     function logout() {
         localStorage.removeItem("JWT-token");
+        localStorage.removeItem("user");
+        setCurrentUser(null);
     }
 
     useEffect(() => {
@@ -81,10 +83,13 @@ export function AuthProvider({children}) {
 
                 navigate("/login");
 
+                setCurrentUser(null);
+
+                setLoading(false);
+
+
                 return;
             }
-
-            console.log("Token is valid");
 
             setCurrentUser(JSON.parse(localStorage.getItem("user")));
 

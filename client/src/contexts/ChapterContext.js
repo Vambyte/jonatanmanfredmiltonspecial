@@ -43,7 +43,9 @@ export function ChapterProvider({ children }) {
             if (data.success) {
                 let userObj = JSON.parse(localStorage.getItem("user"));
 
-                userObj.current_chapter = data.data.current_chapter;
+                userObj.chapter = data.data.current_chapter;
+
+                setCurrentChapter(data.data.current_chapter);
 
                 localStorage.setItem("user", JSON.stringify(userObj));
             }
@@ -73,7 +75,9 @@ export function ChapterProvider({ children }) {
             if (data.success) {
                 let userObj = JSON.parse(localStorage.getItem("user"));
 
-                userObj.current_chapter = data.data.current_chapter;
+                userObj.part = data.data.current_part;
+
+                setCurrentPart(data.data.current_part);
 
                 localStorage.setItem("user", JSON.stringify(userObj));
             }
@@ -111,8 +115,6 @@ export function ChapterProvider({ children }) {
                 localStorage.removeItem("JWT-token");
                 localStorage.removeItem("user");
 
-
-
                 navigate("/login");
                 return;
             }
@@ -120,9 +122,17 @@ export function ChapterProvider({ children }) {
             if (data.success) {
                 setCurrentChapter(data.data.chapter);
                 setCurrentPart(data.data.part);
+
+                let user = JSON.parse(localStorage.getItem("user"));
+
+                user.chapter = data.data.chapter;
+                user.part = data.data.part;
+
+                localStorage.setItem("user", JSON.stringify(user));
+
+
                 setLoading(false);
 
-                console.log("Chapter data has been loaded");
             }
         });
 
