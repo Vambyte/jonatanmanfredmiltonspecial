@@ -1,11 +1,11 @@
 import React from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import '../ComponentStyle/HomePage.css';
+import InternalHeader from './InternalHeader';
+import InternalFooter from './InternalFooter';
+import '../../ComponentStyle/Dashboard.css';
 import ChapterPreview from "./ChapterPreview";
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from '../../contexts/AuthContext';
 
-class HomeChapters extends React.Component {
+class Dashboard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -27,7 +27,7 @@ class HomeChapters extends React.Component {
 
         return (
             <>
-                <Header />                
+                <InternalHeader />                
                 <ul>
                     <li>
                         <button onClick={this._onShowPreview}>Kapitel 1</button>
@@ -42,10 +42,10 @@ class HomeChapters extends React.Component {
                     <li><button onClick={this._onShowPreview}>Kapitel 7</button></li>
                 </ul>
 
-                <Footer />
+                <InternalFooter />
             </>
         );
     }
 }
 
-export default HomeChapters;
+export default Dashboard;

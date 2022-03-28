@@ -1,10 +1,10 @@
 import React from 'react';
-import '../ComponentStyle/Content.css'
+import '../../ComponentStyle/Content.css'
 import ChapterTextArea from './Chapter/ChapterTextArea'
-import Header from './Header';
-import Footer from './Footer';
+import InternalHeader from './InternalHeader';
+import InternalFooter from './InternalFooter';
 import { Link } from 'react-router-dom';
-import { ChapterProvider, useChapter } from '../contexts/ChapterContext';
+import { ChapterProvider, useChapter } from '../../contexts/ChapterContext';
 
 
 class Content extends React.Component {
@@ -19,7 +19,7 @@ class Content extends React.Component {
 
         return (
             <>
-                <Header />
+                <InternalHeader />
                 <div className='Content-Container'>
                     <div className="Chapter-Container-Container">
                         <div className="Chapter-Container">
@@ -34,7 +34,7 @@ class Content extends React.Component {
 
                     <ChapterTextArea />
                 </div>
-                <Footer />
+                <InternalFooter />
             </>
         )
     }

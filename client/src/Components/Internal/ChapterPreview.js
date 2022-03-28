@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import '../ComponentStyle/ChapterPreview.css'
-import { useAuth } from '../contexts/AuthContext';
-import { useChapter } from '../contexts/ChapterContext';
+import '../../ComponentStyle/ChapterPreview.css'
+import { useAuth } from '../../contexts/AuthContext';
+import { useChapter } from '../../contexts/ChapterContext';
 
 
 export default function ChapterPreview() {

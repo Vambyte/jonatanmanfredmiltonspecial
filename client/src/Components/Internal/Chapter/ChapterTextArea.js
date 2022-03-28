@@ -1,5 +1,5 @@
 import React, {useEffect, useState } from 'react'
-import '../../ComponentStyle/ChapterTextArea.css'
+import '../../../ComponentStyle/ChapterTextArea.css'
 import 'react-jsx-parser'
 import JsxParser from 'react-jsx-parser';
 
@@ -11,7 +11,7 @@ import ChapterQuestionForm from './ChapterQuestionForm';
 import ChapterQuestionText from './ChapterQuestionText';
 import ChapterQuestionCheckbox from './ChapterQuestionCheckbox';
 import ChapterQuestionRadio from './ChapterQuestionRadio';
-import { useChapter } from '../../contexts/ChapterContext';
+import { useChapter } from '../../../contexts/ChapterContext';
 
 export default function ChapterTextArea() {
 
@@ -48,15 +48,11 @@ export default function ChapterTextArea() {
 
   }, [chapterHtml, currentChapter, currentPart]);
 
-  function arr() {
-    
-  }
-
   return (
     <div className="main-container">
       <div className="chapter-container">
         <div className="chapter-content">
-            <JsxParser components={{ ChapterImage, ChapterQuestions, ChapterQuestionForm, ChapterQuestionText, ChapterQuestionCheckbox, ChapterQuestionRadio }}jsx={chapterHtml}/>
+            <JsxParser components={{ ChapterImage, ChapterQuestions, ChapterQuestionForm, ChapterQuestionText, ChapterQuestionCheckbox, ChapterQuestionRadio }} jsx={chapterHtml}/>
         </div>
       </div>
     </div>

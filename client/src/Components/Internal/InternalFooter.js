@@ -1,5 +1,4 @@
-
-function Footer() {
+function InternalFooter() {
     return (
         <>
             <footer>
@@ -8,4 +7,4 @@ function Footer() {
     );
   }
   
-  export default Footer;
+export default InternalFooter;

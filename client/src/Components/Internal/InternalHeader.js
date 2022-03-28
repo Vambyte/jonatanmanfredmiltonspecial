@@ -1,8 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom';
-import '../ComponentStyle/header.css'
-import { useAuth } from '../contexts/AuthContext';
+import '../../ComponentStyle/InternalHeader.css'
+import { useAuth } from '../../contexts/AuthContext';
 
-function Header() {
+function InternalHeader() {
 
   const {logout} = useAuth();
   const navigate = useNavigate();
@@ -38,4 +38,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default InternalHeader;

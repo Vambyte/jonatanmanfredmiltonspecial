@@ -1,7 +1,7 @@
 import React from 'react'
 import { Navigate, Outlet } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
-import Login from './Login';
+import Login from './External/Login';
 
 export default function PrivateRoute({component: Component, ...rest}) {
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import '../../ComponentStyle/ChapterTextArea.css'
+import '../../../ComponentStyle/ChapterTextArea.css'
 
 export default function ChapterQuestionText({ question }) {
   return (
