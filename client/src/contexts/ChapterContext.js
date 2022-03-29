@@ -115,7 +115,7 @@ export function ChapterProvider({ children }) {
                 localStorage.removeItem("JWT-token");
                 localStorage.removeItem("user");
 
-                navigate("/home");
+                //navigate("/home");
                 return;
             }
 

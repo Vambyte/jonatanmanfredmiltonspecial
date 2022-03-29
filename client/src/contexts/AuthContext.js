@@ -81,7 +81,7 @@ export function AuthProvider({children}) {
             if (data.success === false) {
                 logout();
 
-                navigate("/home");
+                //navigate("/home");
 
                 setCurrentUser(null);
 
