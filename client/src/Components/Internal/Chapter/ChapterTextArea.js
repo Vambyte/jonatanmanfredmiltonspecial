@@ -20,7 +20,6 @@ export default function ChapterTextArea() {
 
   const { currentChapter, currentPart } = useChapter();
 
-  require("../../../ComponentStyle/ChapterTextArea.css");
 
   useEffect(() => {
 

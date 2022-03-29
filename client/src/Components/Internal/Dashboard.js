@@ -1,7 +1,8 @@
 import React from 'react';
 import InternalHeader from './InternalHeader';
 import InternalFooter from './InternalFooter';
-import '../../ComponentStyle/Dashboard.css';
+import '../../ComponentStyle/Pages.scss';
+
 import ChapterPreview from "./ChapterPreview";
 import { useAuth } from '../../contexts/AuthContext';
 
@@ -24,10 +25,9 @@ class Dashboard extends React.Component {
 
     render() {
         
-        require("../../ComponentStyle/Dashboard.css");
 
         return (
-            <>
+            <div className="Dashboard">
                 <InternalHeader />                
                 <ul>
                     <li>
@@ -44,7 +44,7 @@ class Dashboard extends React.Component {
                 </ul>
 
                 <InternalFooter />
-            </>
+            </div>
         );
     }
 }

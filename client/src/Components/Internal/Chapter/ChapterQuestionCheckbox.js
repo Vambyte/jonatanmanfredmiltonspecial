@@ -2,7 +2,6 @@ import React from 'react'
 
 export default function ({question, options}) {
 
-    require("../../../ComponentStyle/ChapterTextArea.css");
 
     return (
         <>
