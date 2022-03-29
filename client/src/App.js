@@ -21,20 +21,17 @@ function App() {
         <Routes>
 
           <Route exact path="/home" element={<Home/>}/>
-          <Route exact path="/dashboard" element={<PrivateRoute/>}>
-              <Route exact path="/dashboard" element={<Dashboard/>}/>
-          </Route>
           <Route path="/signup" element={<LoginRoute/>}>
             <Route path="/signup" element={<Signup/>}/>
           </Route>
           <Route path="/login" element={<LoginRoute/>}>
             <Route path="/login" element={<Login/>}/>
           </Route>
-          <Route exact path="/chapter" element={<PrivateRoute/>}>
-              <Route exact path="/chapter" element={<Chapter/>}/>
+          <Route exact path="/i/chapter" element={<PrivateRoute/>}>
+              <Route exact path="/i/chapter" element={<Chapter/>}/>
           </Route>
-          <Route exact path="/dashboard" element={<PrivateRoute/>}>
-              <Route exact path="/dashboard" element={<Dashboard/>}/>
+          <Route exact path="/i/dashboard" element={<PrivateRoute/>}>
+              <Route exact path="/i/dashboard" element={<Dashboard/>}/>
           </Route>
         </Routes>
       </ChapterProvider>

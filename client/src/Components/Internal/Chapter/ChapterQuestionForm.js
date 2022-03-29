@@ -1,8 +1,8 @@
 import React from 'react'
 
-import '../../../ComponentStyle/ChapterTextArea.css'
-
 export default function ChapterQuestionForm({children}) {
+  require("../../../ComponentStyle/ChapterTextArea.css");
+
   return (
     <form className="form-group">
         {children}

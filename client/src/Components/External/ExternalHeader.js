@@ -1,8 +1,9 @@
 import React from 'react'
 
-import '../../ComponentStyle/ExternalHeader.css'
-
 export default function ExternalHeader() {
+
+  require("../../ComponentStyle/ExternalHeader.css");
+
   return (
     <>
       <header>

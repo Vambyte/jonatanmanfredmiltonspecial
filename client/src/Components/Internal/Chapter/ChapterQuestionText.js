@@ -1,8 +1,8 @@
 import React from 'react'
 
-import '../../../ComponentStyle/ChapterTextArea.css'
-
 export default function ChapterQuestionText({ question }) {
+
+  require("../../../ComponentStyle/ChapterTextArea.css");
   return (
     <>
     <div className="question-container"> 

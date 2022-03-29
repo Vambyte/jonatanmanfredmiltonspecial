@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import '../../ComponentStyle/ChapterPreview.css'
 import { useAuth } from '../../contexts/AuthContext';
 import { useChapter } from '../../contexts/ChapterContext';
 
@@ -8,6 +7,8 @@ import { useChapter } from '../../contexts/ChapterContext';
 export default function ChapterPreview() {
     const { setChapter } = useChapter();
     const { currentUser } = useAuth();
+
+    require("../../ComponentStyle/ChapterPreview.css");
 
 
     async function chapterClickHandle(e) {
@@ -26,7 +27,7 @@ export default function ChapterPreview() {
             </section>
     
             <footer>
-                <Link to="/chapter" onClick={chapterClickHandle} >Fortsätt till kapitel</Link>
+                <Link to="/i/chapter" onClick={chapterClickHandle} >Fortsätt till kapitel</Link>
             </footer>
         </div>
     

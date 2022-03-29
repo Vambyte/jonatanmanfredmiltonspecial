@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, matchPath, useLocation } from 'react-router-dom';
 
 const AuthContext = React.createContext();
 
@@ -8,11 +8,14 @@ export function useAuth() {
     return useContext(AuthContext);
 }
 
+
 export function AuthProvider({children}) {
 
     const [currentUser, setCurrentUser] = useState({});
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
+    const { pathname } = useLocation();
+
 
 
 
@@ -67,6 +70,16 @@ export function AuthProvider({children}) {
     }
 
     useEffect(() => {
+
+
+        let isInternal = matchPath( { path: "/i/*", exact: true, strict: true }, pathname ) != null;
+
+        if (!isInternal) {
+            setCurrentUser(null);
+            setLoading(false);
+            return;
+        }
+
         const requestOptions = {
             method: "post",
             headers: {
@@ -81,7 +94,7 @@ export function AuthProvider({children}) {
             if (data.success === false) {
                 logout();
 
-                //navigate("/home");
+                navigate("/home");
 
                 setCurrentUser(null);
 

@@ -5,5 +5,5 @@ import Login from './External/Login';
 
 export default function PrivateRoute({component: Component, ...rest}) {
 
-    return localStorage.getItem("JWT-token")  ? <Outlet /> : <Navigate to="/login" />
+    return localStorage.getItem("JWT-token")  ? <Outlet /> : <Navigate to="/home" />
 }

@@ -1,11 +1,12 @@
 import { Link, useNavigate } from 'react-router-dom';
-import '../../ComponentStyle/InternalHeader.css'
+//import '../../ComponentStyle/InternalHeader.css'
 import { useAuth } from '../../contexts/AuthContext';
 
 function InternalHeader() {
 
   const {logout} = useAuth();
   const navigate = useNavigate();
+  require("../../ComponentStyle/InternalHeader.css");
 
   async function handleLogout() {
 

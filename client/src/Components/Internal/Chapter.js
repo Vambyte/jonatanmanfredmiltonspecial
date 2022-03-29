@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../ComponentStyle/Content.css'
 import ChapterTextArea from './Chapter/ChapterTextArea'
 import InternalHeader from './InternalHeader';
 import InternalFooter from './InternalFooter';
@@ -9,6 +8,8 @@ import { ChapterProvider, useChapter } from '../../contexts/ChapterContext';
 
 class Content extends React.Component {
     render() {
+        require("../../ComponentStyle/Content.css");
+
         const chapters = ['Del 1', 'Del 2', 'Del 3', 'Del 4', 'Del 5', 'Del 6', 'Test'];
 
 

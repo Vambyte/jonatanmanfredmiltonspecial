@@ -23,7 +23,8 @@ class Dashboard extends React.Component {
     }
 
     render() {
-
+        
+        require("../../ComponentStyle/Dashboard.css");
 
         return (
             <>

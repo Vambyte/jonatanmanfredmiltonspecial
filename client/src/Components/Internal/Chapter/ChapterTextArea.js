@@ -1,5 +1,4 @@
 import React, {useEffect, useState } from 'react'
-import '../../../ComponentStyle/ChapterTextArea.css'
 import 'react-jsx-parser'
 import JsxParser from 'react-jsx-parser';
 
@@ -20,6 +19,8 @@ export default function ChapterTextArea() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const { currentChapter, currentPart } = useChapter();
+
+  require("../../../ComponentStyle/ChapterTextArea.css");
 
   useEffect(() => {
 
