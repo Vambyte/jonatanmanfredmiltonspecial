@@ -39,7 +39,7 @@ export default function ChapterTextArea() {
       })
     }
 
-    fetch("/main/chapter/get-content", requestOptions).then((res) => {
+    fetch("http://localhost:3001/main/chapter/get-content", requestOptions).then((res) => {
       const reader = res.body.getReader();
       reader.read().then(({done, value}) => {
         setChapterHtml(new TextDecoder().decode(value));

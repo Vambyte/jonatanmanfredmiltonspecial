@@ -24,7 +24,7 @@ export function AuthProvider({children}) {
                 body: JSON.stringify({ email: email, password: password})
             }
     
-            fetch("/user/signup", requestOptions)
+            fetch("http://localhost:3001/user/signup", requestOptions)
             .then((res) => res.json())
             .then(data => {
                 if (data.success) {
@@ -45,7 +45,7 @@ export function AuthProvider({children}) {
                 body: JSON.stringify({ email: email, password: password})
             }
     
-            fetch("/user/login", requestOptions)
+            fetch("http://localhost:3001/user/login", requestOptions)
             .then((res) => res.json())
             .then(data => {
                 if (data.success) {
@@ -75,13 +75,13 @@ export function AuthProvider({children}) {
             },
         }
 
-        fetch("/user/check-token-status", requestOptions)
+        fetch("http://localhost:3001/user/check-token-status", requestOptions)
         .then((res) => res.json())
         .then(data => {
             if (data.success === false) {
                 logout();
 
-                navigate("/login");
+                navigate("/home");
 
                 setCurrentUser(null);
 

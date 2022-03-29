@@ -8,6 +8,7 @@ const Config = require("./configs/config");
 
 const jwt = require("jsonwebtoken");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
 const app = express();
 
@@ -17,7 +18,7 @@ app.use(
     })
 );
 app.use(bodyParser.json());
-
+app.use(cors());
 require("./api/routes")(app);
 
 // Connect to MongoDB server

@@ -18,7 +18,7 @@ export default function ChapterImage({ chapter, imageName, className }) {
             })
         };
 
-        const res = await fetch("/main/chapter/get-image", requestOptions);
+        const res = await fetch("http://localhost:3001/main/chapter/get-image", requestOptions);
         const imageBlob = await res.blob();
         const imageObjectURL = URL.createObjectURL(imageBlob);
         setImg(imageObjectURL);

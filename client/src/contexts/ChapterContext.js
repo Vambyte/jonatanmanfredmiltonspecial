@@ -36,7 +36,7 @@ export function ChapterProvider({ children }) {
           }
       
       
-        fetch("/user/set-current-chapter", requestOptions)
+        fetch("http://localhost:3001/user/set-current-chapter", requestOptions)
         .then((res) => res.json())
         .then(data => {
 
@@ -69,7 +69,7 @@ export function ChapterProvider({ children }) {
           }
       
       
-        await fetch("/user/set-current-part", requestOptions)
+        await fetch("http://localhost:3001/user/set-current-part", requestOptions)
         .then((res) => res.json())
         .then(data => {
             if (data.success) {
@@ -108,14 +108,14 @@ export function ChapterProvider({ children }) {
       
         
       
-        fetch("/user/get-chapter-info", requestOptions)
+        fetch("http://localhost:3001/user/get-chapter-info", requestOptions)
         .then((res) => res.json())
         .then(data => {
             if (data.code === "ERROR_TOKEN") {
                 localStorage.removeItem("JWT-token");
                 localStorage.removeItem("user");
 
-                navigate("/login");
+                navigate("/home");
                 return;
             }
 
