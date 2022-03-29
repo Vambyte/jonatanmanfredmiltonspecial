@@ -1,15 +1,17 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Chapter from './Components/Internal/Chapter.js'
-import Dashboard from './Components/Internal/Dashboard.js'
-import Login from './Components/External/Login.js';
-import Signup from './Components/External/Signup.js';
+
+import Chapter from './pages/internal/Chapter.js'
+import Dashboard from './pages/internal/Dashboard.js'
+import Login from './pages/external/Login.js';
+import Signup from './pages/external/Signup.js';
+import Home from './pages/external/Home.js'
+
 import { AuthProvider } from './contexts/AuthContext.js';
 
-import PrivateRoute from './Components/PrivateRoute.js';
-import LoginRoute from './Components/LoginRoute.js';
+import PrivateRoute from './components/PrivateRoute.js';
+import LoginRoute from './components/LoginRoute.js';
 import { ChapterProvider } from './contexts/ChapterContext.js';
-import Home from './Components/External/Home.js'
-import GenericNotFound from './Components/GenericNotFound.js';
+import GenericNotFound from './components/GenericNotFound.js';
 
 
 

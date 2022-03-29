@@ -1,9 +1,9 @@
 import React from 'react';
-import InternalHeader from './InternalHeader';
-import InternalFooter from './InternalFooter';
-import '../../ComponentStyle/Pages.scss';
+import InternalHeader from '../../components/internal/InternalHeader';
+import InternalFooter from '../../components/internal/InternalFooter';
+import '../../styles/Pages.scss';
 
-import ChapterPreview from "./ChapterPreview";
+import ChapterPreview from "../../components/internal/ChapterPreview";
 import { useAuth } from '../../contexts/AuthContext';
 
 class Dashboard extends React.Component {
