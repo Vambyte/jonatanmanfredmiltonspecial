@@ -13,8 +13,6 @@ import LoginRoute from './components/LoginRoute.js';
 import { ChapterProvider } from './contexts/ChapterContext.js';
 import GenericNotFound from './components/GenericNotFound.js';
 
-
-
 function App() {
   return (
     <Router>
@@ -35,6 +33,8 @@ function App() {
           <Route exact path="/i/dashboard" element={<PrivateRoute/>}>
               <Route exact path="/i/dashboard" element={<Dashboard/>}/>
           </Route>
+          
+          <Route exact path="/" element={<Navigate to="/home"/>}/>
         </Routes>
       </ChapterProvider>
 

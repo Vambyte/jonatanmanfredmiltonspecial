@@ -22,8 +22,8 @@ export default function Login() {
             navigate("/i/dashboard");
         } catch (err) {
             setError(err);
+            setLoading(false);
         }
-        //setLoading(false);
 
     }
 

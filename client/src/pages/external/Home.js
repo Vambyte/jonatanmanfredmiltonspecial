@@ -5,7 +5,11 @@ import '../../styles/Pages.scss';
 export default function Home() {
   return (
     <div className="Home">
+      <div className="home-container">
         <ExternalHeader/>
+        
+      </div>
+  
     </div>
   )
 }

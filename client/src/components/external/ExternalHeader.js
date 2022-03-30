@@ -2,6 +2,8 @@ import React from 'react'
 
 import "../../styles/Components.scss"
 
+import logo from "../../logo.png"
+
 import { useNavigate } from 'react-router-dom'
 
 export default function ExternalHeader() {
@@ -15,7 +17,7 @@ export default function ExternalHeader() {
   return (
     <div className="ExternalHeader">
       <header>
-        <h1>Aktier</h1>
+        <img src={logo} alt="logo"/>
         <nav>
           <ul className="nav__links">
             <li><a href="#">Services</a></li>
