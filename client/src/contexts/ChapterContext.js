@@ -53,34 +53,41 @@ export function ChapterProvider({ children }) {
     }
 
     async function setPart(newPart) {
-        if (currentUser == null) return;
+        return new Promise((resolve, reject) => {
+            if (currentUser == null) {
+                reject();
+                return;
+            };
 
-        const requestOptions = {
-            method: "post",
-            headers: {
-              "Content-Type": "application/json",
-              "Authorization": "Bearer " + localStorage.getItem("JWT-token")
-            },
-            body: JSON.stringify({
-               email: currentUser.email,
-               newChapter: newPart
-               // Add password for internal authentication among users???
-            })
-          }
-      
-      
-        await fetch("http://localhost:3001/user/set-current-part", requestOptions)
-        .then((res) => res.json())
-        .then(data => {
-            if (data.success) {
-                let userObj = JSON.parse(localStorage.getItem("user"));
+            const requestOptions = {
+                method: "post",
+                headers: {
+                  "Content-Type": "application/json",
+                  "Authorization": "Bearer " + localStorage.getItem("JWT-token")
+                },
+                body: JSON.stringify({
+                   email: currentUser.email,
+                   newChapter: newPart
+                   // Add password for internal authentication among users???
+                })
+              }
+          
+          
+            fetch("http://localhost:3001/user/set-current-part", requestOptions)
+            .then((res) => res.json())
+            .then(data => {
+                if (data.success) {
+                    let userObj = JSON.parse(localStorage.getItem("user"));
+    
+                    userObj.part = data.data.current_part;
+    
+                    setCurrentPart(data.data.current_part);
+    
+                    localStorage.setItem("user", JSON.stringify(userObj));
 
-                userObj.part = data.data.current_part;
-
-                setCurrentPart(data.data.current_part);
-
-                localStorage.setItem("user", JSON.stringify(userObj));
-            }
+                    resolve();
+                }
+            });
         });
     }
 

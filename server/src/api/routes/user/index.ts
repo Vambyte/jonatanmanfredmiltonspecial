@@ -32,6 +32,6 @@ router
 
 router
     .route("/check-token-status")
-    .post(require("./data").checkTokenStatus)
+    .get(require("./data").checkTokenStatus)
 
 module.exports = router;

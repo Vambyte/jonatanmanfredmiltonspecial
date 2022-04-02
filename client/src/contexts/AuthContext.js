@@ -81,7 +81,7 @@ export function AuthProvider({children}) {
         }
 
         const requestOptions = {
-            method: "post",
+            method: "get",
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": "Bearer " + localStorage.getItem("JWT-token")

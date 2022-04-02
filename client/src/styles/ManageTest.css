@@ -1,0 +1,29 @@
+.questions-container {
+    margin-left: 10px
+}
+
+.question-container {
+    margin-top: 10px;
+    border: 2px dotted rgb(105, 104, 104);
+    padding: 20px;
+    max-width: 75%;
+}
+
+.question-property-container {
+    display: inline-block;
+    padding-inline: 10px;
+}
+
+.question-check-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.answers-select-container {
+    padding: 10px;
+    border: 2px solid black;
+}
+
+.answer-select-container {
+    margin: 5px;
+}

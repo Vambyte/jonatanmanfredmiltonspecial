@@ -7,7 +7,7 @@ const jwt = require("jsonwebtoken");
 
 export async function Login(reqData: any): Promise<APIResponse> {
     return await new Promise<APIResponse>(async (resolve, reject) => {
-        await UserModel.find({ email: reqData.email }).exec()
+        UserModel.find({ email: reqData.email }).exec()
         .then(user => {
             if (user.length < 1) {
                 return reject(<APIResponse>({

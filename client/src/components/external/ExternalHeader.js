@@ -17,7 +17,7 @@ export default function ExternalHeader() {
   return (
     <div className="ExternalHeader">
       <header>
-        <img src={logo} alt="logo"/>
+        <h1>Aktielabbet</h1>
         <nav>
           <ul className="nav__links">
             <li><a href="#">Services</a></li>

@@ -12,6 +12,7 @@ import PrivateRoute from './components/PrivateRoute.js';
 import LoginRoute from './components/LoginRoute.js';
 import { ChapterProvider } from './contexts/ChapterContext.js';
 import GenericNotFound from './components/GenericNotFound.js';
+import ManageTest from './pages/internal/ManageTest.js';
 
 function App() {
   return (
@@ -32,6 +33,10 @@ function App() {
           </Route>
           <Route exact path="/i/dashboard" element={<PrivateRoute/>}>
               <Route exact path="/i/dashboard" element={<Dashboard/>}/>
+          </Route>
+
+          <Route exact path="/i/manage-test" element={<PrivateRoute/>}>
+              <Route exact path="/i/manage-test" element={<ManageTest/>}/>
           </Route>
           
           <Route exact path="/" element={<Navigate to="/home"/>}/>

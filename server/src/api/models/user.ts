@@ -14,8 +14,8 @@ const userSchema = new mongoose.Schema({
     chapter_info: { 
         type: Object, 
         default: {
-            current_chapter: "",
-            current_part: ""
+            current_chapter: 1,
+            current_part: 1
         } 
     }
 });
