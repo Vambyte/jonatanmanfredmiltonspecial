@@ -1,19 +1,15 @@
 import React, {useRef, useEffect} from 'react'
+import { v4 as uuidV4 } from 'uuid';
 
 export default function ManageTestQuestionText({answers, updateAnswers}) {
-  const answerInputRef = useRef();
-
-  useEffect(() => {
-    answerInputRef.current.value = answers[0] != null ? answers[0].value : "";
-  }, [answers]);
-
-  function onAnswerChange() {
-    updateAnswers([{ value: answerInputRef.current.value, correct: true}]);
+  
+  function onAnswerChange(e) {
+    updateAnswers([{ value: e.target.value, correct: true, _key: uuidV4()}]);
   }
 
   return (
     <div>
-      <input type="text" ref={answerInputRef} onChange={onAnswerChange} />
+      <input type="text" defaultValue={answers[0] != null ? answers[0].value : ""} onChange={onAnswerChange} />
     </div>
   )
 }

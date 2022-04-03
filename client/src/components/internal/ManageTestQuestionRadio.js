@@ -1,70 +1,51 @@
 import React, {useState, useEffect, useRef} from 'react'
+import { v4 as uuidV4 } from 'uuid';
 
 export default function ManageTestQuestionRadio({answers, updateAnswers}) {
-  const [currentAnswers, setCurrentAnswers] = useState([]);
-  const [hasBeenEditedWithouSave, setHasBeenEditedWithoutSave] = useState(false);
   const answersSelectContainerRef = useRef();
 
-
-  useEffect(() => {
-    setCurrentAnswers(answers);
-  }, [answers])
-
   function removeAnswer (value) {
-    setCurrentAnswers(currentAnswers.filter(option => option.value !== value));
+    updateAnswers(answers.filter(option => option.value !== value));
   };
 
   function addAnswer () {
     let value = prompt("Answer: ");
     if (value !== null) {
-      setCurrentAnswers([...currentAnswers, { value: value, correct: false}]);
+      updateAnswers([...answers, { value: value, correct: false, _key: uuidV4()}]);
     }
   }
 
-  function onAnswerChange() {
-    setHasBeenEditedWithoutSave(true);
+  function onAnswerValueChange(newValue, index) {
+    let temp = [...answers];
+    temp[index].value = newValue;
+    updateAnswers(temp);
+
   }
-  
-  function saveAnswers(option, newValue, index) {
-    let temp = [];
-    
-    let answers = answersSelectContainerRef.current.getElementsByClassName("answer-select-container");
-    console.log(answers.length);
 
-    let trueAmounts = 0; // kolla så inte flera är korrekta!
-    
-    for (let i = 0; i < answers.length; i++) {
-      let value = answers[i].querySelector(".answer-value-select").value;
-      let correct = (answers[i].querySelector(".answer-correct-select").value === "true");
-      if (correct) trueAmounts++;
+  function onAnswerCorrectChange(newCorrect, index) {
+    let correct = (newCorrect === "true");
 
-      if (trueAmounts > 1) {
-        alert("Flera är korrekta! De ju radio... Fixa det");
-        return;
-      }
-      temp.push({ value: value, correct: correct });
-    }
-
-    setCurrentAnswers(temp);
-    setHasBeenEditedWithoutSave(false);
+    let temp = [...answers];
+    temp[index].correct = correct;
     updateAnswers(temp);
   }
 
   return (
     <>
-      {hasBeenEditedWithouSave && <strong style={{color: "red"}}>Har ändrats utan att sparats</strong> }
+      <strong>Akta så inte flera är korrekta </strong>
       <div className="question-check-container">
         <div className="answers-select-container" ref={answersSelectContainerRef}>
-          {currentAnswers.map((option, index) => {
+          
+          {answers.map((answer, index) => {
             return (
-              <div className="answer-select-container" key={option.value}>
-                <input className="answer-value-select" defaultValue={option.value} onChange={onAnswerChange} />
+              <div className="answer-select-container" key={answer._key}>
+                <input className="answer-value-select" defaultValue={answer.value} onChange={(e) => { onAnswerValueChange(e.target.value, index) }} />
 
-                <select className="answer-correct-select" defaultValue={option.correct.toString()} onChange={onAnswerChange} >
+                <select className="answer-correct-select" defaultValue={answer.correct.toString()} onChange={(e) => { onAnswerCorrectChange(e.target.value, index)}} >
                   <option value="true">True</option>
                   <option value="false">False</option>
                 </select>
-                <input type="button" style={{"marginLeft": "10px"}} value="Delete" onClick={() => { removeAnswer(option.value) }}/>
+                <input type="button" style={{"marginLeft": "10px"}} value="Delete" onClick={() => { removeAnswer(answer.value) }}/>
                 
               </div>
             )
@@ -73,7 +54,6 @@ export default function ManageTestQuestionRadio({answers, updateAnswers}) {
         
         <div>
           <input type="button" value="Add new" onClick={addAnswer}  />
-          <input type="button" value="Save answers" onClick={saveAnswers}  />
         </div>
       </div>
     </>

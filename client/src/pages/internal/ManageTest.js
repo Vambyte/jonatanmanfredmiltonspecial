@@ -9,6 +9,8 @@ export default function ManageTest() {
   const [currentQuestions, setCurrentQuestions] = useState([]);
   const [allChapterQuestions, setAllChapterQuestions] = useState([]);
 
+  const [questionsIdKey, setQuestionsIdKey] = useState(0);
+
   const chapterSelectRef = useRef();
 
   useEffect(() => {
@@ -24,7 +26,22 @@ export default function ManageTest() {
     .then((res) => res.json())
     .then(data => {
         if (data.success === true) {
+
+          for (let i = 0; i < data.data.chapters.length; i++) {
+            if (data.data.chapters[i].questions.length === 0) continue;
+            for (let y = 0; y < data.data.chapters[i].questions.length; y++) {
+              data.data.chapters[i].questions[y]._key = uuidV4();
+
+              if (data.data.chapters[i].questions[y].answers.length > 0) {
+                for (let x = 0; x < data.data.chapters[i].questions[y].answers.length; x++) {
+                  data.data.chapters[i].questions[y].answers[x]._key = uuidV4();
+                }
+              }
+            }
+          }
+
           setAllChapterQuestions(data.data.chapters);
+          setCurrentQuestions(data.data.chapters[0] != null ? data.data.chapters[0].questions : []);
         } else {
           alert("Could not load data");
         }
@@ -32,11 +49,13 @@ export default function ManageTest() {
   }, []);
 
   function addNewQuestion() {
-    setCurrentQuestions([...currentQuestions, {
+    let temp = [...currentQuestions, {
       type: "text",
       question: "",
-      answers: []
-    }])
+      answers: [],
+      _key: uuidV4()
+    }];
+    setCurrentQuestions(temp)
   }
 
   function updateQuestion(newQuestion, index) {
@@ -45,15 +64,36 @@ export default function ManageTest() {
 
     if (oldQuestion == null) return;
 
-    if (newQuestion.type != oldQuestion.type) {
-      newQuestion.answers = [];
+    if (newQuestion && Object.keys(newQuestion).length === 0 && Object.getPrototypeOf(newQuestion) === Object.prototype) {
+      temp.splice(index, 1);
     }
-    temp[index] = newQuestion;
+    else {
+      if (newQuestion.type != oldQuestion.type) {
+        newQuestion.answers = [];
+      }
+      newQuestion._key = temp[index]._key;
+
+      temp[index] = newQuestion;
+    }
 
     setCurrentQuestions(temp);
   }
 
   function onSaveQuestions() {
+    var tempCurrentQuestions = [...currentQuestions];
+
+    // _key only used in map
+    for (let i = 0; i < tempCurrentQuestions.length; i++) {
+      delete tempCurrentQuestions[i]._key;
+      
+      for (let y = 0; y < tempCurrentQuestions[i].answers.length; y++) {
+        if (tempCurrentQuestions[i].answers[y].value === "") {
+          alert("Finns ett 'Answer(s)' fält som är tomt någonstans");
+          return;
+        }
+        delete tempCurrentQuestions[i].answers[y]._key;
+      }
+    }
 
     const requestOptions = {
       method: "post",
@@ -63,7 +103,7 @@ export default function ManageTest() {
       },
       body: JSON.stringify({
         chapter: (parseInt(chapterSelectRef.current.value)+1).toString(),
-        questions: currentQuestions
+        questions: tempCurrentQuestions
       })
     }
 
@@ -79,10 +119,7 @@ export default function ManageTest() {
   }
 
   function addChapter() {
-    console.log({
-      chapter: allChapterQuestions.length+1,
-      questions: []
-    });
+
     const requestOptions = {
       method: "post",
       headers: {
@@ -132,7 +169,6 @@ export default function ManageTest() {
   }
 
   function onChapterChange(newChapter) {
-    console.log(newChapter);
     setCurrentQuestions(allChapterQuestions[parseInt(newChapter)].questions);
   }
 
@@ -154,14 +190,13 @@ export default function ManageTest() {
           <div className="questions-container">
             {currentQuestions.map((question, index) => {
               return( 
-                <ManageTestQuestion type={question.type} question={question.question} answers={question.answers} key={question.question} updateQuestion={updateQuestion} questionIndex={index} />
+                <ManageTestQuestion type={question.type} question={question.question} answers={question.answers} key={question._key} updateQuestion={updateQuestion} questionIndex={index} />
                 )
             })}
           </div>
           <button style={{ "marginTop": "10px"}} onClick={addNewQuestion}>Add question</button>
           <button style={{ "marginLeft": "10px"}} onClick={onSaveQuestions}>Save current chapter questions</button>
         </div>
-        <p><strong>Kom ihåg att klicka på 'Save Answers' först om checkboxes eller radio används, annars sparas inte de :D !!</strong></p>
       </div>
       
     </div>

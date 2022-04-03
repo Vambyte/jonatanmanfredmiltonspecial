@@ -5,29 +5,20 @@ import ManageTestQuestionText from './ManageTestQuestionText'
 
 export default function ManageTestQuestion({type, question, answers, updateQuestion, questionIndex}) {
 
-    const [questionType, setQuestionType] = useState();
-    const [questionValue, setQuestionValue] = useState();
-    const [questionAnswers, setQuestionAnswers] = useState();
-
     function onTypeChanged(newType) {
-        setQuestionType(newType);
-        updateQuestion({ type: newType, question: questionValue, answers: questionAnswers }, questionIndex);
+        updateQuestion({ type: newType, question: question, answers: answers }, questionIndex);
     }
 
-    function onQuestionChanged(newQuestion) {
-        setQuestionValue(newQuestion);
-        updateQuestion({ type: questionType, question: newQuestion, answers: questionAnswers }, questionIndex);
+    function onQuestionChanged(e) {
+        updateQuestion({ type: type, question: e.target.value, answers: answers }, questionIndex);
     }
-
-    useEffect(() => {
-        setQuestionType(type);
-        setQuestionValue(question);
-        setQuestionAnswers(answers);
-    }, [])
 
     function updateAnswers(newAnswers) {
-        setQuestionAnswers(newAnswers);
-        updateQuestion({ type: questionType, question: questionValue, answers: newAnswers }, questionIndex);
+        updateQuestion({ type: type, question: question, answers: newAnswers }, questionIndex);
+    }
+
+    function deleteQuestion() {
+        updateQuestion({}, questionIndex);
     }
 
     return (
@@ -35,7 +26,7 @@ export default function ManageTestQuestion({type, question, answers, updateQuest
             
             <label>Type: </label>
             <div className="question-property-container">
-                <select defaultValue={type} onChange={(event) => { onTypeChanged(event.target.value) }}>
+                <select value={type} onChange={(event) => { onTypeChanged(event.target.value) }}>
                     <option value="text">Text</option>
                     <option value="check">Check</option>
                     <option value="radio">Radio</option>
@@ -44,20 +35,20 @@ export default function ManageTestQuestion({type, question, answers, updateQuest
 
             <label>Question: </label>
             <div className="question-property-container">
-                <input type="text" defaultValue={question} onChange={(event) => {onQuestionChanged(event.target.value)}} />
+                <input type="text" defaultValue={question} onChange={onQuestionChanged} />
             </div>
 
             <label>Answer(s):</label>
             <div className="question-property-container">
                
-                {questionType == "text" && <ManageTestQuestionText answers={answers}   updateAnswers={updateAnswers}  />}
-                {questionType == "check" && <ManageTestQuestionCheck answers={answers} updateAnswers={updateAnswers}  />}
-                {questionType == "radio" && <ManageTestQuestionRadio answers={answers} updateAnswers={updateAnswers}  />}
+                {type === "text" && <ManageTestQuestionText answers={answers}   updateAnswers={updateAnswers}  />}
+                {type === "check" && <ManageTestQuestionCheck answers={answers} updateAnswers={updateAnswers}  />}
+                {type === "radio" && <ManageTestQuestionRadio answers={answers} updateAnswers={updateAnswers}  />}
             </div>
             
 
 
-            <button style={{float: "right"}}>Delete question</button>
+            <button style={{float: "right"}} onClick={deleteQuestion}>Delete question</button>
 
         </div>
     )
