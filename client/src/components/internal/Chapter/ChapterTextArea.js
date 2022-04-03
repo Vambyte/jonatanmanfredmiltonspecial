@@ -28,7 +28,7 @@ export default function ChapterTextArea() {
     if (currentChapter == null || currentPart == null) return;
 
     const requestOptions = {
-      method: "get",
+      method: "post",
       headers: {
         "Content-Type": "application/json",
         "Authorization": "Bearer " + localStorage.getItem("JWT-token")

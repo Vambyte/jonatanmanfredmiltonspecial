@@ -25,11 +25,11 @@ export default function Chapter() {
                          <ul>
                              {parts.map((part)=>{
                                  return (
-                                     <li>
+                                     <li key={part}>
                                          <button onClick={(e) => {
                                             e.preventDefault();
                                             setPart(part).then(() => { navigate("/i/chapter"); })
-                                         }} key={part}> Del {part}</button>
+                                         }} > Del {part}</button>
                                      </li>)
                              })}
                          </ul>

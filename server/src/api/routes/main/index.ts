@@ -8,12 +8,12 @@ const router = Router();
 router
     .route("/chapter/get-content")
     .all(checkAuthenticated)
-    .get(require("./chapter/chapter").getContent);
+    .post(require("./chapter/chapter").getContent);
 
 router
     .route("/chapter/get-image")
     .all(checkAuthenticated)
-    .get(require("./chapter/chapter").getImage)
+    .post(require("./chapter/chapter").getImage)
 
 router
     .route("/chapter/set-questions")

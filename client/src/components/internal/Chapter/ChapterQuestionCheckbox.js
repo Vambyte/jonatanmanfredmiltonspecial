@@ -12,11 +12,9 @@ export default function ({question, options}) {
                 <div className="select-container">
                     {options.map((option) => {
                         return (
-                            <>
-                                <label className="select-label" key={option+option}>
-                                    <input type="checkbox" className="checkbox select-child" value={option} key={option}/> {option}
-                                </label>
-                            </>
+                            <label className="select-label" key={option}>
+                                <input type="checkbox" className="checkbox select-child" value={option} key={option}/> {option}
+                            </label>
                         )
                     })}
                 </div>

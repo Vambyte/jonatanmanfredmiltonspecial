@@ -11,11 +11,9 @@ export default function ChapterQuestionRadio({question, options}) {
             <div className="select-container">
                 {options.map((option) => {
                     return (
-                        <>
-                            <label className="select-label" key={option+option}>
-                                <input type="radio" className="radio select-child" value={option} key={option}/> {option}
-                            </label>
-                        </>
+                        <label className="select-label" key={option}>
+                            <input type="radio" className="radio select-child" value={option} key={option}/> {option}
+                        </label>
                     )
                 })}
             </div>

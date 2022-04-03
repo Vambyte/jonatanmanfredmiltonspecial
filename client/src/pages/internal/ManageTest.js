@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react'
 import { v4 as uuidV4 } from 'uuid';
-import ManageTestQuestion from '../../components/internal/ManageTestQuestion';
+import ManageTestQuestion from '../../components/internal/ManageTest/ManageTestQuestion';
 import "../../styles/Pages.scss";
 
 export default function ManageTest() {
