@@ -4,7 +4,9 @@ import Chapter from './pages/internal/Chapter.js'
 import Dashboard from './pages/internal/Dashboard.js'
 import Login from './pages/external/Login.js';
 import Signup from './pages/external/Signup.js';
-import Home from './pages/external/Home.js'
+import Home from './pages/external/Home.js';
+
+import Manfred from './pages/external/Manfred.js';
 
 import { AuthProvider } from './contexts/AuthContext.js';
 
@@ -20,6 +22,7 @@ function App() {
     <AuthProvider>
       <ChapterProvider>
         <Routes>
+          <Route exact path="/manfred" element={<Manfred/>}/>
 
           <Route exact path="/home" element={<Home/>}/>
           <Route path="/signup" element={<LoginRoute/>}>

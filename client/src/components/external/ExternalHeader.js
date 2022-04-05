@@ -17,15 +17,21 @@ export default function ExternalHeader() {
   return (
     <div className="ExternalHeader">
       <header>
-        <h1>Aktielabbet</h1>
-        <nav>
-          <ul className="nav__links">
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">About</a></li>
-          </ul>
-        </nav>
-        <a className="cta" href="#"><button onClick={login}>Login</button></a>
+        <span>
+          <h1>Aktielabbet</h1>
+        </span>
+        <span>
+          <nav>
+            <ul className="nav__links">
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Projects</a></li>
+              <li><a href="#">About</a></li>
+            </ul>
+          </nav>
+        </span>
+        <span>
+          <a className="cta" href="#"><button onClick={login}>Login</button></a>
+        </span>
       </header>
       </div>
   )
