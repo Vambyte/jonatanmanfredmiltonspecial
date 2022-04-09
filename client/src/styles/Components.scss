@@ -2,6 +2,10 @@
     @import 'ExternalHeader';
 }
 
+.ExternalFooter{
+    @import 'ExternalFooter';
+}
+
 .InternalHeader {
     @import 'InternalHeader';
 }

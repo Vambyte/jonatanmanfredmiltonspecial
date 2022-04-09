@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react'
 import ExternalHeader from '../../components/external/ExternalHeader'
+import ExternalFooter from '../../components/external/ExternalFooter'
 import '../../styles/Manfred.scss'
 
 export default function Manfred() {
@@ -32,6 +33,7 @@ export default function Manfred() {
                     </section>
                 </div>
             </div>
+            <ExternalFooter />
         </div>
     )
 }

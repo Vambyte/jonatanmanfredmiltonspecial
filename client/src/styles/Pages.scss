@@ -1,3 +1,31 @@
+:root{
+    /* Consts */
+    --header-height: 110px;
+    --footer-height: 110px;
+    /* Background colors */
+    --back-background-color: #24252A;
+    --front-background-color: #000000;
+    /* Text colors */
+    --text-color: #eeeeee;
+    --header-footer-text-color: #eeeeee;
+}
+
+/* Ser till att sidan täcker hela sidan regardless om den har content för det eller inte */
+body{
+    min-height: 100vh;
+}
+/* Hänger med den ovan */
+#root>div>div:nth-child(2)>div{ /* Hittar den includade sidan */
+    min-height: calc(100vh - var(--footer-height) - var(--header-height));
+}
+
+/* Läggs till i root vilket ändrar variablerna för alla sidor */
+.light-mode{
+    --back-background-color: #24252A;
+    --front-background-color: #eeeeee;
+    --text-color: #000000;
+}
+
 .Dashboard {
     @import 'Dashboard';
     @import 'ChapterPreview';
