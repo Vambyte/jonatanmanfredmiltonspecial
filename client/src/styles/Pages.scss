@@ -2,11 +2,13 @@
     /* Consts */
     --header-height: 110px;
     --footer-height: 110px;
+
+
     /* Background colors */
     --back-background-color: #24252A;
-    --front-background-color: #000000;
+    --front-background-color: #eeeeee;
     /* Text colors */
-    --text-color: #eeeeee;
+    --text-color: #000000;
     --header-footer-text-color: #eeeeee;
 }
 
@@ -20,10 +22,13 @@ body{
 }
 
 /* Läggs till i root vilket ändrar variablerna för alla sidor */
-.light-mode{
+.dark-mode{
+    /* Background colors */
     --back-background-color: #24252A;
-    --front-background-color: #eeeeee;
-    --text-color: #000000;
+    --front-background-color: rgb(27, 27, 31);
+    /* Text colors */
+    --text-color: #eeeeee;
+    --header-footer-text-color: #eeeeee;
 }
 
 .Dashboard {
