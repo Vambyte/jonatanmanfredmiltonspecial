@@ -2,6 +2,7 @@ import React, {useRef} from 'react'
 
 import "../../styles/Components.scss"
 
+import hamburger_menu_img from "../../hamburger_menu.png";
 import logo from "../../logo.png"
 
 import { useNavigate } from 'react-router-dom'
@@ -49,8 +50,8 @@ export default function ExternalHeader() {
           </nav>
         </span>
         <span>
-          <a className="cta" href="#"><button onClick={login}>Login</button></a>
-          <button className="hamburger-menu" onClick={openHamburgerMenu}><img src="../../../public/hamburger_menu.png" alt="hamburger_menu" /></button>
+          <button className="cta" onClick={login}>Login</button>
+          <button className="hamburger-menu" onClick={openHamburgerMenu}><img src={hamburger_menu_img} alt="hamburger_menu" /></button>
         </span>
         <section id="hamburger-side-menu" ref={hamburger_side_menu}>
           <button onClick={ChangeToDarkMode}>Dark-mode On/Off</button>

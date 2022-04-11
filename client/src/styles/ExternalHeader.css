@@ -78,7 +78,7 @@ header>span>*{
     color: #0088a9;
 }
 
-button {
+.cta {
     padding: 9px 25px;
     background-color: rgba(0, 136, 169, 1);
     border: none;
@@ -87,7 +87,8 @@ button {
     transition: all 0.3s ease 0s;
 }
 
-button:hover {
+.cta:hover {
+    color: #f0f0f0;
     background-color: rgba(0, 136, 169, 0.8);
 }
 
@@ -100,6 +101,11 @@ header{
     position: relative;
     overflow-x: hidden;
     max-height: var(--header-height);
+}
+
+.hamburger-menu>img{
+    width: 40px;
+    height: auto;
 }
 
 #hamburger-side-menu{
