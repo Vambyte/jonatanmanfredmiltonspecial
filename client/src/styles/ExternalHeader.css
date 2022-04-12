@@ -106,11 +106,32 @@ header>span>h1{
     border-radius: 50%;
     height: 45px;
     width: 45px;
+
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
     background-color: var(--front-background-color);
+}
+
+#close-container{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    margin-top: 5px;
+
+}
+
+#close-container-button{
+    position: relative;
+    background: none;
+    border: none;
 }
 
 .hamburger-side-menu-icon{
     background-color: var(--front-background-color);
+    
 }
 
 header{
@@ -143,15 +164,16 @@ header{
                 margin-right 250ms ease-in-out;
 }
 
+#hamburger-side-menu>*{
+    background-color: var(--front-background-color);
+}
+
+
 #hamburger-side-menu *{
     transition: none !important;
 
-
-    /*background-color: var(--front-background-color);*/
     color: var(--text-color);
-    margin-right: 5px;
-    margin-left: 5px;
-    margin-top: 5px;
+    
     text-align: center;
 
     transition: background-color 250ms ease-in-out,

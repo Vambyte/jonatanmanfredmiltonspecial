@@ -62,6 +62,7 @@ export default function ExternalHeader() {
           <button className="hamburger-menu" onClick={openHamburgerMenu}><img src={hamburger_menu_img} alt="hamburger_menu" /></button>
         </span>
         <section id="hamburger-side-menu" ref={hamburger_side_menu}>
+          <span id="close-container"><button id="close-container-button" onClick={openHamburgerMenu}>x</button></span>
           <span className="hamburger-side-menu-header">
             <button onClick={profile} className="hamburger-side-menu-icon-container"><FontAwesomeIcon className="hamburger-side-menu-icon" icon={faUser} /></button>
             <button onClick={ChangeToDarkMode} className="hamburger-side-menu-icon-container"><FontAwesomeIcon className="hamburger-side-menu-icon" icon={faLightbulb} /></button>
