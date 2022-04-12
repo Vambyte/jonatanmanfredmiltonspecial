@@ -3,7 +3,7 @@
 
 
 
-* {
+*, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -36,6 +36,11 @@ header>span{
     justify-content: center;
 }
 
+header>span>*{
+    display: flex;
+    justify-content: center;
+}
+
 .hamburger-menu{
     margin-left: 15px;
     width: 50px;
@@ -51,30 +56,27 @@ header>span>h1{
     color: white;
 }
 
-header>span>*{
-    display: flex;
-    justify-content: center;
-}
 
-.logo {
+
+/* .logo {
     cursor: pointer;
-}
+} */
 
 .nav__links {
     list-style: none;
 }
 
-.nav__links li {
+.nav__links>li {
     display: inline-block;
     padding: 0 20px;
 }
 
-.nav__links li a {
+.nav__links>li>a {
     transition: all 0.3s ease 0s;
     color: white;
 }
 
-.nav__links li a:hover {
+.nav__links>li>a:hover {
     color: #0088a9;
 }
 
@@ -93,9 +95,23 @@ header>span>*{
 }
 
 
+.hamburger-side-menu-header{
+    display: flex;
+    background-color: #000000;
+    width: 100%;
+    justify-content: space-evenly;
+}
 
+.hamburger-side-menu-icon-container{
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+    background-color: var(--front-background-color);
+}
 
-
+.hamburger-side-menu-icon{
+    background-color: var(--front-background-color);
+}
 
 header{
     position: relative;
@@ -128,7 +144,10 @@ header{
 }
 
 #hamburger-side-menu *{
-    background-color: var(--front-background-color);
+    transition: none !important;
+
+
+    /*background-color: var(--front-background-color);*/
     color: var(--text-color);
     margin-right: 5px;
     margin-left: 5px;

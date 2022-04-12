@@ -5,6 +5,10 @@ import "../../styles/Components.scss"
 import hamburger_menu_img from "../../hamburger_menu.png";
 import logo from "../../logo.png"
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLightbulb, faUser } from '@fortawesome/free-solid-svg-icons'
+//import { faLightbulb } from '@fortawesome/free-solid-svg-icons'
+
 import { useNavigate } from 'react-router-dom'
 
 export default function ExternalHeader() {
@@ -15,6 +19,10 @@ export default function ExternalHeader() {
 
   function login() {
     navigate("/login");
+  }
+
+  function profile() {
+    navigate("/profile");
   }
 
   function openHamburgerMenu(){
@@ -54,7 +62,10 @@ export default function ExternalHeader() {
           <button className="hamburger-menu" onClick={openHamburgerMenu}><img src={hamburger_menu_img} alt="hamburger_menu" /></button>
         </span>
         <section id="hamburger-side-menu" ref={hamburger_side_menu}>
-          <button onClick={ChangeToDarkMode}>Dark-mode On/Off</button>
+          <span className="hamburger-side-menu-header">
+            <button onClick={profile} className="hamburger-side-menu-icon-container"><FontAwesomeIcon className="hamburger-side-menu-icon" icon={faUser} /></button>
+            <button onClick={ChangeToDarkMode} className="hamburger-side-menu-icon-container"><FontAwesomeIcon className="hamburger-side-menu-icon" icon={faLightbulb} /></button>
+          </span>
           <p>Måste nog fixa till denna lite granna</p>
         </section>
       </header>
